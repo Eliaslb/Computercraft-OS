@@ -1,0 +1,19 @@
+print("Apiloader V1.1")
+
+print("Getting avalible apis")
+
+local filelist = fs.list("/disk/api")
+
+if filelist == nil then
+print("Could not find any APIs")
+sleep(2)
+return
+end
+
+for i=1, #filelist do
+os.loadAPI("/disk/api/"..filelist[i])
+print("Loaded "..filelist[i].." APIs")
+
+end
+
+print("Loaded "..#filelist.."APIs")

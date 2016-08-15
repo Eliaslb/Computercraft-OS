@@ -1,0 +1,20 @@
+function mouseclick()
+  local button, xcord, ycord = os.pullEvent("mouse_click")
+end
+
+function keypress()
+  while true do
+  local evt1, char = os.pullEvent("char")
+  end
+end
+
+function keydetect(local input)--, input2, input3, input4)
+  while true do  
+  local evt2, chardetect = os.pullEvent("char")
+  --if chardetect == input then
+  end
+end
+
+function scroll()
+  local scroll, sx, sy = os.pullEvent("mouse_scroll")
+end

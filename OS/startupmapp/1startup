@@ -1,0 +1,6 @@
+--Real startup file which is gets changed to in first time setup
+shell.run("/OS/api/apiloader")
+shell.run("/OS/startup/Login")
+shell.setAlias("program","/program")
+shell.setAlias("Music Player","Music")
+

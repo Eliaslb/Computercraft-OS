@@ -1,0 +1,6 @@
+print("Welcome")
+print("You need to have a monitor on the right side with the size 6 by 3 for the best experience.")
+sleep(3)
+term.clear()
+shell.run("monitor","right","secret/alongtimeago")
+

@@ -1,0 +1,31 @@
+ver = os.version()
+os.setComputerLabel("My computer")
+id = os.getComputerID()
+label = os.getComputerLabel()
+print("Current version is: "..ver)
+print("Computer ID is: "..id)
+print("Computer label is: "..label)
+term.setCursorPos(15,6)
+textutils.slowPrint("Press C for command console")
+term.setCursorPos(15,8)
+textutils.slowPrint("Press P for programs list")
+term.setCursorPos(15,10)
+textutils.slowPrint("Press S for shutdown")
+while true do
+  local evt, c = os.pullEvent("char")
+  c = string.lower(c)
+  if c == "c" then
+    clear()
+    shell.setDir("")
+    return
+  elseif c == "p" then
+    term.clear()
+    shell.setDir("programs/")
+    shell.run("programs")
+    break
+  elseif c == "s" then
+    os.shutdown()
+  end
+end
+    
+

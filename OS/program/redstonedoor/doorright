@@ -1,0 +1,24 @@
+--Doorconfig right side
+local pullEvent = os.pullEvent
+os.pullEvent = os.pullEventRaw
+
+local side = "right"
+local password = "1234"
+local opentime = 5
+while true do
+  term.clear()
+  term.setCursorPos(1,1)
+  write("Password:")
+  local input = read("*")
+  if input == password then
+    print("Password Correct!")
+    rs.setOutput("right",true)
+    sleep(opentime)
+    rs.setOutput("right",false)
+  else
+    print("Password Incorrect")
+    sleep(2)
+  end
+end 
+os.pullEvent = pullEvent
+   

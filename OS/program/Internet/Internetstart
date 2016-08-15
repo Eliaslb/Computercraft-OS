@@ -1,0 +1,71 @@
+--Variables
+ver = 1.1
+
+--Websites
+site1 = "www.computercraft.info"
+site2 = "www.cheats.com"
+site3 = "www.anticheat.com"
+site4 = "www.eliasprograms.net"
+site5 = "www.example.com"
+site6 = nil
+site7 = nil
+site8 = nil 
+site9 = nil
+
+
+--Functions
+local function clear()
+  term.clear()
+  term.setCursorPos(1,1)
+end
+
+
+--Code
+clear()
+
+textutils.slowPrint("Version is :"..ver)
+
+term.setCursorPos(1,3)
+textutils.slowPrint("B for Browse Internet")
+
+term.setCursorPos(1,5)
+   
+textutils.slowPrint("S for Shutdown")
+
+--KeyPress EVENT
+
+while true do
+  local evt, c = os.pullEvent("char")
+  c = string.lower(c)
+  if c == "b" then
+    --Starta Webläsare
+    clear()
+    textutils.slowWrite("Write URL here: ")
+    local input = read()
+    if input == site1 then
+      clear()
+      shell.run("/OS/program/Internet/Websites/computercraft")
+    elseif input == site2 then
+      clear()
+      shell.run("/OS/program/Internet/Websites/  ")
+    elseif input == site3 then
+      clear()
+      shell.run("/OS/program/Internet/Websites/  ")
+    elseif input == site4 then
+      clear()
+      shell.run("/OS/program/Internet/Websites/  ")
+    elseif input == site5 then
+      clear()
+      shell.run("/OS/program/Internet/Websites/Example")    
+    else 
+      print("No valid website")
+    end
+    
+  elseif c == "s" then
+    clear()
+    return
+  end
+end
+  
+
+

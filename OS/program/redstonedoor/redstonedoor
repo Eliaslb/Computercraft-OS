@@ -1,0 +1,17 @@
+--This is the startup
+print("This program will make the whole computer a passworddoor")
+print("Press L for left door setup and R for right door setup press C to cancel")
+while true do
+  local evt, c = os.pullEvent("char")
+  c = string.lower(c)
+  if c == "l" then
+    shell.run("/OS/program/redstonedoor/doorleft")
+    fs.copy("/OS/program/redstonedoor/doorleft","startup")
+    os.reboot()
+  elseif c == "r" then
+    shell.run("/OS/program/redstonedoor/doorright")
+    fs.copy("/OS/program/redstonedoor/doorright","startup")
+  elseif c == "c" then
+    os.reboot()
+  end
+end

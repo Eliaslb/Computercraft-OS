@@ -1,0 +1,28 @@
+print("Welcome to the music player")
+sleep(2)
+local musik 
+if disk.hasAudio("right") == true then
+  musik = disk.getAudioTitle("right") 
+  print("Playing music from right diskdrive: "..musik)
+  disk.playAudio("right")
+elseif disk.hasAudio("left") == true then
+  musik = disk.getAudioTitle("left")
+  print("Playing music from left diskdrive: "..musik)
+  disk.playAudio("left")
+elseif disk.hasAudio("top") == true then
+  musik = disk.getAudioTitle("top")
+  print("Playing music from top diskdrive: "..musik)
+  disk.playAudio("top")
+elseif disk.hasAudio("bottom") == true then
+  musik = disk.getAudioTitle("bottom")  
+  print("Playing music from bottom diskdrive: "..musik)
+  disk.playAudio("bottom")
+elseif disk.hasAudio("back") == true then
+  musik = disk.getAudioTitle("back")
+  print("Playing music from back diskdrive: "..musik)
+  disk.playAudio("back")
+else
+  sleep(2)
+  print("Could not find music disk")
+end  
+  

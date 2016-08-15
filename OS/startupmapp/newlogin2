@@ -1,0 +1,13 @@
+while true do
+ local image = paintutils.loadImage("/OS/art/startmeny")
+ paintutils.drawImage(image,1,1)
+  
+ local tCoords  = {
+   [1] = { 11, 43, 1, 5,"X" },
+   [2] = { 7, 50, 7, 12,"OK" },
+ }
+ 
+ local evt, button, x, y = os.pullEvent("mouse_click")
+ 
+ for i=1, #tCoords do
+     if x >= tCoords

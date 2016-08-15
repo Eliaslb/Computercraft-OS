@@ -1,0 +1,63 @@
+--Simpler chat client by Tyab
+--This one actually WORKS and has USER HANDLES
+--I feel sad you cannot SAVE YOUR HANDLE, tho.
+
+function clear()
+ term.clear()
+ term.setCursorPos(1,1)
+end
+
+rednet.open("back")
+username = "Chum"
+local chatBuddy = nil
+
+function help()
+ print("Welcome to Pesterchum 1.0")
+ print("Press C to Connect")
+ print("Press H to set your Handle")
+ print("Press A to Abscond to menu")
+ print("Press T to Type")
+end
+
+clear()
+help()
+
+while true do
+ event, id, msg = os.pullEvent()
+
+ if event == "rednet_message" and id == chatBuddy then
+  print(msg)
+
+ elseif event == "char" then
+
+  if id == "t" then
+   write(username.." > ")
+   msgsent = read()
+   if chatBuddy ~= nil then
+    rednet.send(chatBuddy,username.." > "..msgsent)
+   else
+    print("Quit talking to yourself, dumbass!")
+    --always punish users for doing stuff wrong
+   end
+
+  elseif id == "h" then
+   write("New username: ")
+   username = read()
+
+  elseif id == "c" then
+   write("Chum ID: ") --put your chum's computer ID here
+   chatBuddy = tonumber(read())
+   clear()
+   print("Conncted. You may chat if your chum")
+   print("is connected to you right now")
+
+  elseif id == "a" then
+   chatBuddy = nil
+   clear()
+   help()
+
+  end
+
+ end
+
+end

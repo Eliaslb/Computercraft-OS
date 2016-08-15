@@ -1,0 +1,10 @@
+print("Needs monitor on the right side")
+while true do
+  shell.run("monitor","right","time")
+  sleep(1)
+
+term.clear()
+shell.run("monitor","right","clear")
+term.setCursorPos(1,1)
+end
+

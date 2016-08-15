@@ -1,0 +1,3 @@
+local sExample = http.get("http://www.example.com/")
+write(sExample.readAll())
+website.close()

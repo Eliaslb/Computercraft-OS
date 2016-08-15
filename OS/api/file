@@ -1,0 +1,20 @@
+function read(sFile, mode)
+local hRead = assert (fs.open(sFile, "r"))
+  if mode == "r" then
+    text = hRead.readLine()
+    hRead.close()
+    return text
+  elseif mode == "a" then
+    text = hRead.readAll()
+    hRead.close()
+    return text
+  end
+end  
+
+function write(sFile, mode, input)
+local hWrite = assert(fs.open(sFile, mode))
+text = hWrite.write(input)
+hWrite.close()
+return text
+end
+

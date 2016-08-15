@@ -1,0 +1,56 @@
+do
+  numb = math.random(1,100)
+  tries = 1
+  triesmax = 7
+  version =  1.1
+  win = false
+end
+
+
+do
+  term.clear()
+  textutils.slowprint("----------------")
+  textutils.slowprint("Welcome to Guess the number V:"..version)
+  textutils.slowprint("----------------")
+  print("Enter to continue")
+  io.read()
+  print("You have 6 guesses. Guess the number before you run out of guesses.")
+end
+
+while true do
+  if tries > triesmax then
+    break
+  else
+    print("Guess. [1-100 whole numbers]")
+    guess = io.read()
+    guess = tonumber(guess)
+    if guess = numb then
+      win = true
+      break
+    else
+      print("Incorrect")
+      if guess > numb then
+        print("Your guess was to high")
+      elseif guess < numb then
+        print("Your guess was to low")
+      else
+        print("#Error()")
+      end
+      tries = tries + 1
+    end
+ end
+end
+
+do 
+  term.clear()
+  textutils.slowprint("Game Over")
+  if win == true then
+    print("Winner = Player")
+  else 
+    print("Winner = Computer")
+  end
+end
+
+    
+  
+  

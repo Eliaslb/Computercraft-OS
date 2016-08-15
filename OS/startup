@@ -1,0 +1,54 @@
+--First time setup
+term.clear()
+term.setCursorPos(1,1)
+
+image = paintutils.loadImage("disk/art/setuppic")
+paintutils.drawImage(image, 1,1)
+sleep(2)
+term.clear()
+term.setCursorPos(1,1)
+print("Welcome to Elias setup program")
+print("Starting installation")
+sleep(1)
+print("Deleting old files")
+--if fs.exists("utils") == true then
+ --fs.delete("utils")
+--elseif fs.exists("api") == true then
+ -- fs.delete("api")
+--elseif fs.exists("program") == true then
+ -- fs.delete("program")
+ fs.delete("shortcuts")
+ fs.delete("programs")
+if fs.exists("startup") == true then
+   fs.delete("startup")
+end
+if fs.exists("OS") == true then
+  fs.delete("OS")
+else
+print("Didn't find any files")
+end   
+print("Making directories and copying files.....")
+sleep(3)
+fs.makeDir("OS")
+fs.copy("/disk/program","/OS/program")
+fs.copy("/disk/startupmapp","/OS/startup")
+fs.copy("/disk/api","/OS/api")
+fs.copy("/disk/utils","/OS/utils")
+fs.copy("/disk/art","/OS/art")
+fs.copy("/disk/startupmapp/1startup","startup")
+--fs.copy("/disk/programlinks/Clock","/")
+--fs.copy("/disk/programlinks/Calculator","/")
+--fs.copy("/disk/programlinks/Music","/")
+--fs.copy("/disk/programlinks/Chat","/")
+--fs.copy("/disk/programlinks/Notebook","/")
+--fs.copy("/disk/programlinks/Starwars","/")
+fs.copy("/disk/shortcuts","programs")
+disk.eject("left")
+disk.eject("right")
+disk.eject("top")
+disk.eject("bottom")
+disk.eject("back")
+print("Rebooting......")
+sleep(2)
+os.reboot()
+

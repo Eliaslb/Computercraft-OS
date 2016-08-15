@@ -1,0 +1,55 @@
+function clear()
+  term.clear()
+  term.setCursorPos(1,1)
+end
+
+clear()
+
+done = false
+
+print("Welcome to Notebook")
+print("1. Read file")
+print("2. Write file")
+print("3. List documents")
+print("4. Exit program")
+
+while true do
+event, key = os.pullEvent("char")
+
+if key == "1" then
+  clear()
+  print("Which file do you want to read?")
+  sFile = read()
+  print("Standby... Opening file...")
+  sleep(1)
+  print(file.read("notes/"..sFile, "a"))
+  return
+  clear()
+elseif key == "2" then
+  clear()
+  print("What do you want to name the file? (No spaces)")
+  sFile = read()
+  print("Standby opening file......")
+  sleep(1)
+  clear()
+  print("Type exit() if you want to quit editing the document")
+  repeat
+    input = read()
+    if input == exit() then
+      done = true
+    else
+    file.write("notes/"..sFile, "w", input)
+    end
+  until done
+  return
+  clear()
+elseif key == "3" then
+  clear()
+  shell.run("list","notes")
+  return
+elseif key == "4" then
+  return
+ end
+end
+
+    
